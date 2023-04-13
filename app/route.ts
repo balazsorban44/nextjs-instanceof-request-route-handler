@@ -1,3 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-export const GET = (req: NextRequest) =>
-  NextResponse.json(req instanceof NextRequest); // returns false
+
+export function GET(req: NextRequest) {
+  return NextResponse.json({
+    NextRequest: req instanceof NextRequest,
+    Request: req instanceof Request,
+  });
+}
